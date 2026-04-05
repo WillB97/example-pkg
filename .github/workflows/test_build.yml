@@ -62,7 +62,8 @@ jobs:
         enable-cache: true
     - name: Set version
       run: |
-        VERSION=./scripts/get_version.py
+        VERSION=$(./scripts/get_version.py)
+        echo Setting version $VERSION
         uv version $VERSION
     - name: Build package
       run: |
