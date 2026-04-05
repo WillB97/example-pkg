@@ -44,7 +44,6 @@ lint.select = [
     "SLF001",  # warn about accessing private members, these can be noqa'd when necessary
     "NPY201",  # warn about numpy 2.0 compatibility
 ]
-preview = true  # Enable preview to get the rest of pycodestyle errors
 lint.ignore = [
     # "D104",  # Ignoe missing docstring in public package
     "D105",  # Ignore missing docstring in magic method
@@ -55,6 +54,7 @@ lint.ignore = [
     "RUF005",  # Allow alternate iterable unpacking
     "RUF015",  # Allow + concatenation
 ]
+preview = true  # Enable preview to get the rest of pycodestyle errors
 
 [tool.pytest]
 minversion = "9.0"
