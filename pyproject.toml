@@ -1,17 +1,57 @@
 [project]
 name = "example-pkg"
-version = "0.1.0"
-description = "Add your description here"
+version = "0.0.0" # This will be set by CI
+description = "An example of a package using the Astral suite."
 readme = "README.md"
+license = {file = "LICENSE"}
 authors = [
-    { name = "WillB97"}
+    { name = "WillB97" }
 ]
-requires-python = ">=3.11"
-dependencies = []
+requires-python = ">=3.10"
+dependencies = [
+]
+
+[dependency-groups]
+dev = [
+    "ruff >=0.15,<0.16",
+    "ty >=0.0.28,<0.1",
+    "pytest",
+    "pytest-cov"
+]
 
 [project.scripts]
 example-pkg = "example_pkg:main"
 
+[project.urls]
+Repository = "https://github.com/WillB97/example_pkg"
+
 [build-system]
 requires = ["uv_build>=0.10.4,<0.11.0"]
 build-backend = "uv_build"
+
+[tool.ruff]
+line-length = 95
+lint.select = [
+    "D",  # pydocstyle
+    "E",  # pycodestyle error
+    "F",  # pyflakes
+    "I",  # isort
+    "W",  # pycodestyle warning
+    "RUF",  # ruff-specific
+    "B006",  # mutable default argument
+    "B021",  # f-string docstring
+    "COM818",  # warn about implicitly creating a tuple
+    "SLF001",  # warn about accessing private members, these can be noqa'd when necessary
+    "NPY201",  # warn about numpy 2.0 compatibility
+]
+preview = true  # Enable preview to get the rest of pycodestyle errors
+lint.ignore = [
+    # "D104",  # Ignoe missing docstring in public package
+    "D105",  # Ignore missing docstring in magic method
+    "D107",  # Ignore missing docstring in __init__
+    "D401",  # Ignore first line of docstring should be in imperative mood
+    "D203",  # Ignore 1 blank line required before class docstring
+    "D212",  # Ignore Multi-line docstring summary should start at the first line
+    "RUF005",  # Allow alternate iterable unpacking
+    "RUF015",  # Allow + concatenation
+]
