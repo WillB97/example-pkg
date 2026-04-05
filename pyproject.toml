@@ -15,7 +15,7 @@ dependencies = [
 dev = [
     "ruff >=0.15,<0.16",
     "ty >=0.0.28,<0.1",
-    "pytest",
+    "pytest >=9",
     "pytest-cov"
 ]
 
@@ -55,3 +55,8 @@ lint.ignore = [
     "RUF005",  # Allow alternate iterable unpacking
     "RUF015",  # Allow + concatenation
 ]
+
+[tool.pytest]
+minversion = "9.0"
+addopts = ["--cov=example_pkg", "--cov-report=term"]
+testpaths = ["tests"]
